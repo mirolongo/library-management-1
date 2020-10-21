@@ -1,0 +1,69 @@
+library.txt
+
+// Create a program that uses a .txt file to store and load a library of books and movies.
+
+
+
+// 									THESE ARE OUR OBJECTS
+
+
+//Library  <----SUPERCLASS
+uniqe articelnumber (positiv integer).
+produktname (String).
+price (positiv integer)
+
+//Books
+number of pages(Positive integer).
+author (string).
+
+//Film
+Lenght in minutes(Positive integer).
+Rating IMDB (float between 0-10).
+
+//Customer
+Name(String).
+Phone number (String).
+
+								EXAMPLE OF FILE FORMAT
+
+article number, type of object
+						movie, Name,value,Lenght,rating
+						book, Name,value,Pages,Author
+
+
+
+//										METHODS
+
+//interface
+	String pathfile.
+
+
+//Loadfile
+Check if file exist
+	if not then create .txt file with initialized information.
+	if yes then load .txt file
+
+//Readfile
+Used to
+	loadfile
+	parse Information into an list or arraylist
+	every object gets and index
+
+
+//Writefile
+Used to
+	Add books or Films
+	Remove books or Films on sett index
+	Able to sort depending on article number
+
+// ParseCommand
+Used to
+	nextline
+	first line is command
+	second line (if needed) is argument
+
+CAUTION!
+
+Exception handling.
+
+	

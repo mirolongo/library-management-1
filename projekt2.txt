@@ -1,0 +1,83 @@
+Description of project 
+
+
+CLASS
+
+Class Product (abstract)
+
+idproduct (key) 	int +
+title			String
+value			int +
+type			String
+
+SubClass Book extends Product
+
+numberofpages 	int +
+publisher		String
+
+
+SubClass Movie extends Product
+
+length			int +
+rating			int +
+
+
+
+
+Description of commands
+
+list
+Show all products in stock with descriptions of, read the file  “productStock.txt”
+checkout + ID
+Associates the ID of product with a client and write in the file  “productStock.txt”
+checkin + ID
+Disassociates the ID of product from a client and write in file  “productStock.txt”
+register
+Insert a new product and write in file  “productStock.txt”
+desregister + ID
+delete a product from the file “productStock.txt”
+info + ID
+show a especificate product, read the file  “productStock.txt”
+Quit
+Exit program
+
+
+Methods
+
+confirmId()
+		Checks if the idproduct exists in the file “productStock.txt”
+
+confirmPositiveNumber()
+		Check if the numbers of int variable are positive and  integer
+
+existsFile()
+		Checks if the file “productStock.txt” exists  in HD
+
+confirmRating()
+		Checks if the rating is between 0 and 10
+
+confirmPhoneNumber()
+		Check if the format of phone number is “999-999-9999”
+
+registerBook()
+		Write in the file “productStock.txt” new fields of book
+
+registerMovie()
+		Write int the file “productStock.txt” new fields of movie
+
+deleteProduct()
+		Delete from the file “productStock.txt” row of a idproduct field
+
+checkout()
+Associate a client to a book
+
+checkin()
+Desassociate a product of a client
+info()
+Show a especificate product by idproduct
+quit()
+End of program
+
+confirmBorrowed()
+Consult if a idproduct is associate of a client
+
