@@ -1,9 +1,11 @@
 package com.librarymanagement.products;
 
+import java.io.Serializable;
+
 import com.librarymanagement.customers.Customer;
 import com.librarymanagement.validators.DataValidator;
 
-public abstract class Product {
+public abstract class Product implements Serializable {
 public int productId;
 public int value;
 public String title;
@@ -18,6 +20,9 @@ private String status =  "(in stock)";
 		this.value = value;
 		this.title = title;
 	}
+	protected Product() {
+		
+	}
 	public void checkOut(Customer customer) {
 		this.customer = customer;
 		status = "\n Borrowed by: " + customer.toString();
@@ -29,7 +34,7 @@ private String status =  "(in stock)";
 	}
 	@Override
 	public String toString() {
-		String message = productId + "(" +this.getClass().getSimpleName() +"): " + title + ". " + status;
+		String message = productId + " (" +this.getClass().getSimpleName() +"): " + title + ". " + status;
 		return message;
 		}
 	public boolean isAvaliable() {

@@ -1,21 +1,18 @@
 package com.librarymanagement.products;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProductManagementImpl implements ProductManagement {
+public class ProductManagementImpl implements ProductManagement, Serializable {
+	
 
-	@Override
-	public void insertBook(Book aBook) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void insertMovie(Movie aMovie) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7587761306422491402L;
+	protected ArrayList<Product> products = new ArrayList<Product>();
+	
+	
 	@Override
 	public void deleteProduct(int productId) {
 		// TODO Auto-generated method stub
@@ -43,8 +40,25 @@ public class ProductManagementImpl implements ProductManagement {
 	@Override
 	public ArrayList<Product> list() {
 		// TODO Auto-generated method stub
-		return null;
+		return products;
 	}
+	
+	private boolean checkIfProductExists(int id) {
+		for(Product product:products ) {
+			if (product.productId == id) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 
-
+	@Override
+	public void insert(Product newProduct) throws IllegalArgumentException {
+		if (checkIfProductExists(newProduct.productId)) {
+			throw new IllegalArgumentException("Error: Product with " + newProduct.productId + " is already registered.");
+		}
+		products.add(newProduct);
+		
+	}
 }
