@@ -29,7 +29,7 @@ public class ProductManagementSerializeble implements ProductManagement {
 
 	private void save() {
 		try {
-			FileOutputStream fileOut = new FileOutputStream("Test1.txt");
+			FileOutputStream fileOut = new FileOutputStream("Product_Library.txt");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(productManagement);
 			out.close();
@@ -42,7 +42,7 @@ public class ProductManagementSerializeble implements ProductManagement {
 		ObjectInputStream in = null;
 		ProductManagement p = null;
 		try {
-			 fileIn = new FileInputStream("Test1.txt");
+			 fileIn = new FileInputStream("Product_Library.txt");
 			 in = new ObjectInputStream(fileIn);
 			p = (ProductManagement)in.readObject();
 			in.close();
