@@ -16,10 +16,19 @@ public class ProductManagementImpl implements ProductManagement, Serializable {
 	
 	
 	@Override
-	public void deleteProduct(int productId) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void deleteProduct(int productId) throws IllegalArgumentException {
+		if(checkIfProductExists(productId)==true) {
+			Product productToRemove = null;
+			for (Product product : products) {
+			  if (product.productId == productId) {
+			    productToRemove = product;
+			    break;
+			  }
+			}
+			products.remove(productToRemove);
+		}	
+			throw new IllegalArgumentException("Product " + productId + " doesn't exists in database, try again");
+	}	
 
 	@Override
 	public void checkOut(int productId, String name, String phoneNumber) {

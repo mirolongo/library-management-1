@@ -89,4 +89,5 @@ public class ProductManagementSerializeble implements ProductManagement {
 	public ArrayList<Product> list() {
 		return productManagement.list();
 	}
+
 }
