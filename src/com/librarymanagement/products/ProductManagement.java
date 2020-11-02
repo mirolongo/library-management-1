@@ -7,6 +7,6 @@ public interface ProductManagement {
 	 void deleteProduct(int productId);
 	 void checkOut(int productId, String name, String phoneNumber);
 	 void checkIn(int productId);
-	 Product info(int productId);
+	 void info(int productId);
 	 ArrayList<Product> list();
 }

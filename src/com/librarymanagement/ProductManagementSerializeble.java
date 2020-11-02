@@ -40,18 +40,18 @@ public class ProductManagementSerializeble implements ProductManagement {
 	static ProductManagement read() {
 		FileInputStream fileIn = null;
 		ObjectInputStream in = null;
-		ProductManagement p = null;
+		ProductManagement pM = null;
 		try {
 			 fileIn = new FileInputStream("Product_Library.txt");
 			 in = new ObjectInputStream(fileIn);
-			p = (ProductManagement)in.readObject();
+			pM = (ProductManagement)in.readObject();
 			in.close();
 			fileIn.close();
 		} catch (Exception e) {
 			
 		
 		}
-		return p;
+		return pM;
 	
 	}
 
@@ -81,8 +81,8 @@ public class ProductManagementSerializeble implements ProductManagement {
 	}
 
 	@Override
-	public Product info(int productId) {
-		return productManagement.info(productId);
+	public void info(int productId) {
+		productManagement.info(productId);
 	}
 
 	@Override

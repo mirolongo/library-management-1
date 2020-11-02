@@ -1,21 +1,28 @@
 package com.librarymanagement.products;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import com.librarymanagement.customers.Customer;
 import com.librarymanagement.validators.DataValidator;
 
 public abstract class Product implements Serializable {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7452076737395181833L;
 public int productId;
 public int value;
 public String title;
 private Customer customer;
 private String status =  "(in stock)";
+	// Product Constructor
+	//Fields: productId, value and title
 	public Product(int productId, int value, String title) {
 		DataValidator dataValidator = new DataValidator();
-		dataValidator.isPositiveOrThrows(productId, "product ID");
-		dataValidator.isPositiveOrThrows(value, "product value");
-		dataValidator.stringHasDataOrThrows(title, "product title");
+		dataValidator.isPositiveOrThrows(productId, " product ID");
+		dataValidator.isPositiveOrThrows(value, " product value");
+		dataValidator.stringHasDataOrThrows(title, " product title");
 		this.productId = productId;
 		this.value = value;
 		this.title = title;
@@ -40,7 +47,8 @@ private String status =  "(in stock)";
 	public boolean isAvaliable() {
 		return customer == null;
 	}
-	//12345 (Book): To Kill a Mockingbird.
-   // Borrowed by: Alice Doe, 832-337-2959
-   // 12346 (Book): The Great Gatsby. (in stock)
+	public Object getNome(ArrayList<Product> products) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

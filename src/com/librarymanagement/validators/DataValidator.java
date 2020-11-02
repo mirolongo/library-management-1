@@ -1,11 +1,5 @@
 package com.librarymanagement.validators;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Scanner;
-
 //This class validates all fields of the Product, Movie and Book classes.
 
 public class DataValidator {
