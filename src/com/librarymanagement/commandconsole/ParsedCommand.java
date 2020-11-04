@@ -1,38 +1,55 @@
 package com.librarymanagement.commandconsole;
 
-enum Command{
-	LIST,
-	CHECKOUT,
-	CHECKIN,
-	REGISTER,
-	DEREGISTER,
-	INFO,
-	QUIT,
-	NOTALLOWED
-}
 
+// This class separate the commands and parameters
 public class ParsedCommand {
+	private  String param;
+	private Command command = Command.NONE;
 
-	public static Command Command (String fullinput) {
+	public String getParam() {
+		return param;
+	}
+
+	public Command getCommand() {
+		return command;
+	}
+	public int parseParamToInt() {
+		try {
+			
+			return Integer.parseInt(this.param);
+			} 
+			catch (NumberFormatException e) {
+				throw new IllegalArgumentException("Unknown command");
+			}
 		
+	}
 
-		String specificCommand = fullinput.split(" ")[0];
+	public void Command (String fullinput) {
+		this.param = null;
+		String[] inputs = fullinput.split(" ");
+		String specificCommand = inputs[0];
+		if(inputs.length == 2) {
+			param = inputs[1];
+		}
+		if (inputs.length > 2) {
+			command = Command.NOTALLOWED;
+		}
 		if (specificCommand.equals("list")) {
-			return Command.LIST;
+			command = Command.LIST;
 		} else if (specificCommand.equals("checkout")) {
-			return Command.CHECKOUT;
+			command = Command.CHECKOUT;
 		} else if (specificCommand.equals("checkin")) {
-			return Command.CHECKIN;
+			command = Command.CHECKIN;
 		} else if (specificCommand.equals("register")) {
-			return Command.REGISTER;
+			command = Command.REGISTER;
 		} else if (specificCommand.equals("deregister")) {
-			return Command.DEREGISTER;
+			command = Command.DEREGISTER;
 		} else if (specificCommand.equals("info")) {
-			return Command.INFO;
+			command = Command.INFO;
 		} else if (specificCommand.equals("quit")) {
-			return Command.QUIT;
+			command = Command.QUIT;
 		} else {
-			return Command.NOTALLOWED;
+			command = Command.NOTALLOWED;
 		}
 	}
 	

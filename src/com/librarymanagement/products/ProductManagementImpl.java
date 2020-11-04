@@ -2,22 +2,22 @@ package com.librarymanagement.products;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+
+import com.librarymanagement.customers.Customer;
 
 public class ProductManagementImpl implements ProductManagement, Serializable {
 	
 
 	/**
-	 * 
+	 * This class implements interface and Serialized the objects
 	 */
 	private static final long serialVersionUID = 7587761306422491402L;
 	protected ArrayList<Product> products = new ArrayList<Product>();
 	
-	
+	//Delete a product from file
 	@Override
 	public void deleteProduct(int productId) throws IllegalArgumentException {
-		if(checkIfProductExists(productId)==true) {
+			findByIdOrThrow(productId);
 			Product productToRemove = null;
 			for (Product product : products) {
 			  if (product.productId == productId) {
@@ -26,20 +26,27 @@ public class ProductManagementImpl implements ProductManagement, Serializable {
 			  }
 			}
 			products.remove(productToRemove);
-		}	
-			throw new IllegalArgumentException("Product " + productId + " doesn't exists in database, try again");
+			System.out.println("Successfully deregistered "); ///TODO
 	}	
-
+	// Borrowed a product to customer
 	@Override
 	public void checkOut(int productId, String name, String phoneNumber) {
-		// TODO Auto-generated method stub
-		
+		Product product = findByIdOrThrow(productId);
+		product.checkOut(new Customer(name, phoneNumber));
 	}
-
+	//Confirm if the product is borrowed
+	private Product findByIdOrThrow(int productId) throws IllegalArgumentException{
+		Product product = findById(productId);
+		if (product == null) {
+			throw new IllegalArgumentException("Error: No product with id  " + productId + " registered.");
+		}
+		return product;
+	}
+	//Return a product and unlink product of a customer 
 	@Override
 	public void checkIn(int productId) {
-		// TODO Auto-generated method stub
-		
+		Product product = findByIdOrThrow(productId);
+		product.checkIn();
 	}
 	
 	 public boolean equals(Product product) {
@@ -66,18 +73,14 @@ public class ProductManagementImpl implements ProductManagement, Serializable {
 	            System.out.println(product);
 	        }
 			if (checkIfProductExists(productId) == false) {
-				throw new IllegalArgumentException("The product Id " + productId + " doesn't exists in database, try again.");
+				throw new IllegalArgumentException("Error: No product with id  " + productId + " registered.");
+				
 			}
 		}
 	}
-	private Product Product(int productId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	// Create a list of products
 	@Override
 	public ArrayList<Product> list() {
-		// TODO Auto-generated method stub
 		return products;
 	}
 	//Check if exists a product in the file "Product_Library.txt"
@@ -88,6 +91,15 @@ public class ProductManagementImpl implements ProductManagement, Serializable {
 			}
 		}
 		return false;
+	}
+	//Confirm if productId exists
+	private Product findById(int id) {
+		for(Product product:products ) {
+			if (product.productId == id) {
+				return product;
+			}
+		}
+		return null;
 	}
 	
 	//Insert a new product in the file "Product_Library.txt"

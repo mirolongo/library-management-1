@@ -1,9 +1,7 @@
 package com.librarymanagement;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -13,7 +11,7 @@ import com.librarymanagement.products.ProductManagement;
 import com.librarymanagement.products.ProductManagementImpl;
 
 public class ProductManagementSerializeble implements ProductManagement {
-
+	public static int x = 0;
 	/**
 	 * 
 	 */
@@ -41,19 +39,30 @@ public class ProductManagementSerializeble implements ProductManagement {
 		FileInputStream fileIn = null;
 		ObjectInputStream in = null;
 		ProductManagement pM = null;
+
+		
 		try {
 			 fileIn = new FileInputStream("Product_Library.txt");
 			 in = new ObjectInputStream(fileIn);
 			pM = (ProductManagement)in.readObject();
 			in.close();
 			fileIn.close();
+			if(x == 0) {
+				System.out.println("Welcome!");
+				System.out.println("Succesfully initialized system state from file(s).");
+				System.out.println();
+				x = 1;
+			}
+			
 		} catch (Exception e) {
 			
 		
 		}
 		return pM;
 	
+	
 	}
+
 
 	@Override
 	public void insert(Product product) {

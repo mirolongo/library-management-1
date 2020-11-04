@@ -31,11 +31,17 @@ private String status =  "(in stock)";
 		
 	}
 	public void checkOut(Customer customer) {
+		if (customer != null) {
+			throw new IllegalStateException("Cannot lend " + title + " to another customer. It is already borrowed by " + customer.getName() + ".");
+		}
 		this.customer = customer;
 		status = "\n Borrowed by: " + customer.toString();
 		
 	}
 	public void checkIn() {
+		if (customer == null) {
+			throw new IllegalStateException("Cannot return " + title + " .It is not borrowed by any customer.");
+		}
 		customer = null;
 		status = "(in stock)";
 	}
