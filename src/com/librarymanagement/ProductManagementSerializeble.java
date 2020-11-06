@@ -13,7 +13,7 @@ import com.librarymanagement.products.ProductManagementImpl;
 public class ProductManagementSerializeble implements ProductManagement {
 	public static int x = 0;
 	/**
-	 * 
+	 * written to file
 	 */
 	ProductManagement productManagement = new ProductManagementImpl();
 	private static final long serialVersionUID = -623012340337380129L;
@@ -35,34 +35,31 @@ public class ProductManagementSerializeble implements ProductManagement {
 		} catch (Exception e) {
 		}
 	}
+
 	static ProductManagement read() {
 		FileInputStream fileIn = null;
 		ObjectInputStream in = null;
 		ProductManagement pM = null;
 
-		
 		try {
-			 fileIn = new FileInputStream("Product_Library.txt");
-			 in = new ObjectInputStream(fileIn);
-			pM = (ProductManagement)in.readObject();
+			fileIn = new FileInputStream("Product_Library.txt");
+			in = new ObjectInputStream(fileIn);
+			pM = (ProductManagement) in.readObject();
 			in.close();
 			fileIn.close();
-			if(x == 0) {
+			if (x == 0) {
 				System.out.println("Welcome!");
 				System.out.println("Succesfully initialized system state from file(s).");
 				System.out.println();
 				x = 1;
 			}
-			
+
 		} catch (Exception e) {
-			
-		
+
 		}
 		return pM;
-	
-	
-	}
 
+	}
 
 	@Override
 	public void insert(Product product) {
@@ -74,7 +71,7 @@ public class ProductManagementSerializeble implements ProductManagement {
 	public void deleteProduct(int productId) {
 		productManagement.deleteProduct(productId);
 		save();
-		
+
 	}
 
 	@Override
@@ -90,13 +87,18 @@ public class ProductManagementSerializeble implements ProductManagement {
 	}
 
 	@Override
-	public void info(int productId) {
-		productManagement.info(productId);
+	public Product info(int productId) {
+		return productManagement.info(productId);
 	}
 
 	@Override
 	public ArrayList<Product> list() {
 		return productManagement.list();
+	}
+
+	@Override
+	public Product findByIdOrThrow(int productId) throws IllegalArgumentException {
+		return productManagement.findByIdOrThrow(productId);
 	}
 
 }

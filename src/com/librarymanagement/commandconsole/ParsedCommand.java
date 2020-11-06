@@ -1,9 +1,8 @@
 package com.librarymanagement.commandconsole;
 
-
 // This class separate the commands and parameters
 public class ParsedCommand {
-	private  String param;
+	private String param;
 	private Command command = Command.NONE;
 
 	public String getParam() {
@@ -13,22 +12,22 @@ public class ParsedCommand {
 	public Command getCommand() {
 		return command;
 	}
+
 	public int parseParamToInt() {
 		try {
-			
+
 			return Integer.parseInt(this.param);
-			} 
-			catch (NumberFormatException e) {
-				throw new IllegalArgumentException("Unknown command");
-			}
-		
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("Unknown command");
+		}
+
 	}
 
-	public void Command (String fullinput) {
+	public void Command(String fullinput) {
 		this.param = null;
 		String[] inputs = fullinput.split(" ");
 		String specificCommand = inputs[0];
-		if(inputs.length == 2) {
+		if (inputs.length == 2) {
 			param = inputs[1];
 		}
 		if (inputs.length > 2) {
@@ -52,6 +51,5 @@ public class ParsedCommand {
 			command = Command.NOTALLOWED;
 		}
 	}
-	
-	
+
 }

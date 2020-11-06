@@ -3,7 +3,7 @@ Project number 2 from the end of 2020 (yrkeshogskolan)
 Library system with loan of Books and Movies developed in JAVA via IDE Eclipse with writing in file in byte-code format
 
 The system is run via console and does not have any integrated graphics application, so it does not need installation for its execution.
-The system can be run via the console directly (CMD) or via an IDE.
+The system can be run via an IDE.
 
 SETTINGS
 

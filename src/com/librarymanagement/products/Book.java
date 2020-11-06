@@ -7,14 +7,14 @@ import com.librarymanagement.validators.DataValidator;
 public class Book extends Product implements Serializable {
 
 	/**
-	 * 
+	 * Book object creation
 	 */
 	private static final long serialVersionUID = -2805419811155607162L;
 	private int numberOfPages;
 	private String publisher;
-	
-	//Book Constructor
-	//Fields: value, title,  numberOfPages and publisher
+
+	// Book Constructor
+	// Fields: value, title, numberOfPages and publisher
 	public Book(int productId, int value, String title, int numberOfPages, String publisher) {
 		super(productId, value, title);
 		this.numberOfPages = numberOfPages;
@@ -23,7 +23,13 @@ public class Book extends Product implements Serializable {
 		dataValidator.isPositiveOrThrows(numberOfPages, "Number of pages");
 		dataValidator.stringHasDataOrThrows(publisher, "publisher");
 	}
+
 	private Book() {
 		super();
+	}
+
+	@Override
+	public String info() {
+		return super.info().concat(", Number of pages: " + this.numberOfPages).concat(", Publisher: " + this.publisher);
 	}
 }
