@@ -16,21 +16,21 @@ https://github.com/dennistran4/library-management
 
 CHARACTERISTICS
 
-The library system allows registration of books and movies, removal of books and films, and can be associated with a customer who borrows them. The product stock allows for only one unit of each item and the customer can borrow more than one book or film.
+The library system allows registration of books and movies, remove all of books and films, and can be associated with a customer who borrows them. The product stock allows for only one unit of each item and the customer can borrow more than one book or film.
 The system is interactive via a console where the products have the following characteristics when registering:
 
 Books: Unique code, title, number of pages, value and publisher.
 Movies: Unique code, title, duration, value and rating.
 
-When the product is lent to a customer, it provides the telephone number and full name.
+When the product is lent to a customer, it provides the telephone number and name.
 
 The menu is interactive with command options for registering products and also for lending to a customer.
 
 The commands accepted by the system are:
 
 list -> presents all registered products
-checkout + product code -> lend a product to a customer
-checkin + product code -> returns the product to stock after loan
+checkout + article code -> lend a product to a customer
+checkin + article code -> returns the product to stock after loan
 register -> Register a new product (Book or movie)
 deregister + article code -> remove the product from the system
 info + article code -> Informs the status of the product and its description
