@@ -30,7 +30,7 @@ public class DataValidator {
 				throw new IllegalArgumentException(name + " is in incorrect format, the systax of phone number is 999-999-9999");
 			}
 			if (valueConfirm[0].length() > 3 || valueConfirm[1].length() > 3 || valueConfirm[2].length() > 4) {
-				throw new IllegalArgumentException(name + " is in incorrect format, the syntax of phone number is (999-999-9999)");
+				throw new IllegalArgumentException(name + " is in incorrect format, the syntax of phone number is 999-999-9999");
 			}
 		}
 	}

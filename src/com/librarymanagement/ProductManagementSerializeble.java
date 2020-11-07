@@ -24,7 +24,7 @@ public class ProductManagementSerializeble implements ProductManagement {
 			productManagement = product;
 		}
 	}
-
+//Save the object in the file Product_Library.txt
 	private void save() {
 		try {
 			FileOutputStream fileOut = new FileOutputStream("Product_Library.txt");
@@ -35,7 +35,7 @@ public class ProductManagementSerializeble implements ProductManagement {
 		} catch (Exception e) {
 		}
 	}
-
+//Read the file Product_Library.txt
 	static ProductManagement read() {
 		FileInputStream fileIn = null;
 		ObjectInputStream in = null;

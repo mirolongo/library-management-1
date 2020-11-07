@@ -33,8 +33,9 @@ public abstract class Product implements Serializable {
 
 	public void checkOut(Customer customer) {
 		if (this.customer != null) {
+			Customer customerBorrowed = this.customer;
 			throw new IllegalStateException("Cannot lend " + title + " to another customer. It is already borrowed by "
-					+ customer.getName() + ".");
+					+ customerBorrowed.getName() + ".");
 		}
 		this.customer = customer;
 		status = "\n Borrowed by: " + customer.toString();

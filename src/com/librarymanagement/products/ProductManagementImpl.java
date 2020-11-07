@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
-
 import com.librarymanagement.customers.Customer;
 
 public class ProductManagementImpl implements ProductManagement, Serializable {
@@ -34,10 +32,10 @@ public class ProductManagementImpl implements ProductManagement, Serializable {
 	@Override
 	public void checkOut(int productId, String name, String phoneNumber) {
 		Product product = findByIdOrThrow(productId);
-		product.checkOut(new Customer(name, phoneNumber));
+		product.checkOut(new Customer(name, phoneNumber)); 
 	}
 
-	// Confirm if the product is borrowed
+	// Confirm if the product exists
 	@Override
 	public Product findByIdOrThrow(int productId) throws IllegalArgumentException {
 		Product product = findById(productId);
@@ -55,7 +53,7 @@ public class ProductManagementImpl implements ProductManagement, Serializable {
 		product.checkIn();
 	}
 
-	// Command info, returns a product with a product parameter (info 999999)
+	// Command info, returns a product with a product parameter
 	@Override
 	public Product info(int productId) throws IllegalArgumentException {
 		checkIfProductExists(productId);

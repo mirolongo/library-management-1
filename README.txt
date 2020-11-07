@@ -34,7 +34,7 @@ checkin + article code -> returns the product to stock after loan
 register -> Register a new product (Book or movie)
 deregister + article code -> remove the product from the system
 info + article code -> Informs the status of the product and its description
-quit -> closes the system
+quit -> closes the system	
 
 
 Contribution:

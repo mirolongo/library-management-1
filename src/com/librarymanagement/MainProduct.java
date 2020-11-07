@@ -12,13 +12,13 @@ import com.librarymanagement.products.*;
 public class MainProduct {
 
 	public static void main(String[] args) {
-
+		//Create instants of classes to manipulate the object
 		ProductManagement productsMgr = new ProductManagementSerializeble();
 		ParsedCommand parsedCommand = new ParsedCommand();
 		CommandToMethod commandToMethod = new CommandToMethod();
 		showInitialState(productsMgr.list());
 		Command command = Command.NONE;
-
+// user interaction loop
 		while (command != Command.QUIT) {
 			System.out.print(">");
 			try {
