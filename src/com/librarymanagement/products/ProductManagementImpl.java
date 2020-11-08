@@ -12,7 +12,7 @@ public class ProductManagementImpl implements ProductManagement, Serializable {
 	 * This class implements interface and Serialized the objects
 	 */
 	private static final long serialVersionUID = 7587761306422491402L;
-	protected ArrayList<Product> products = new ArrayList<Product>();
+	private ArrayList<Product> products = new ArrayList<Product>();
 
 	// Delete a product from file
 	@Override

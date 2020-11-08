@@ -46,7 +46,7 @@ public abstract class Product implements Serializable {
 		if (customer == null) {
 			throw new IllegalStateException("Cannot return " + title + " .It is not borrowed by any customer.");
 		}
-		customer = null;
+		this.customer = null;
 		status = "(in stock)";
 	}
 
@@ -68,6 +68,9 @@ public abstract class Product implements Serializable {
 	}
 
 	public Customer getCustomer() {
+		if (customer == null) {
+			throw new IllegalStateException("Cannot return " + title + " .It is not borrowed by any customer.");
+		}
 		return customer;
 	}
 
