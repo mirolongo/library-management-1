@@ -16,7 +16,7 @@ INFORMATION:
 A basic library management system with a database in the form of a serialized .txt file that can be manipulated via commands. Developed in JAVA via IDE Eclipse with writing in file in byte-code format.
 
 The system is run via console and does not have any integrated graphics application, so it does not need installation for its execution.
-The system can be run via an IDE.
+The system can be run via an IDE and via CMD.
 
 SETTINGS
 
