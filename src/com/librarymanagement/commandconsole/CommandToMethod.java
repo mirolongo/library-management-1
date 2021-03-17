@@ -24,7 +24,6 @@ public class CommandToMethod {
 			break;
 		case CHECKIN:
 			checkin(productsMgr, parsedCommand.parseParamToInt());
-
 			break;
 		case REGISTER:
 			register(productsMgr, parsedCommand);

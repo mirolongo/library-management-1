@@ -2,3 +2,9 @@
 .classpath
 .DS_Store
 .project
+.idea/artifacts/library_management_war_exploded.xml
+*.xml
+*.iml
+*.jsp
+*.iml
+library-management.iml
