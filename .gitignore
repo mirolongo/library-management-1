@@ -8,3 +8,4 @@
 *.jsp
 *.iml
 library-management.iml
+*.class
